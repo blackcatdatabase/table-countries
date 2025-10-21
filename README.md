@@ -2,7 +2,7 @@
 
 ![SQL](https://img.shields.io/badge/SQL-MySQL%208.0%2B-4479A1?logo=mysql&logoColor=white) ![License](https://img.shields.io/badge/license-BlackCat%20Proprietary-red) ![Status](https://img.shields.io/badge/status-stable-informational) ![Generated](https://img.shields.io/badge/generated-from%20schema--map-blue)
 
-> Schema package for table **countries** (repo: $slug).
+> Schema package for table **countries** (repo: `countries`).
 
 ## Files
 ```
@@ -43,8 +43,8 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/001_table.sql
 ```mermaid
 erDiagram
   COUNTRIES {
-    CHAR(2) iso2 PK
-    VARCHAR(100) name
+    VARCHAR iso2 PK
+    VARCHAR name
   }
 ```
 

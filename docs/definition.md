@@ -1,4 +1,4 @@
-<!-- Auto-generated from schema-defs.psd1 @ 0d1e984 (2025-10-21T22:04:56+02:00) -->
+<!-- Auto-generated from schema-map.psd1 @ 6cefe8e (2025-10-22T20:27:41+02:00) -->
 # Definition – countries
 
 Country reference list.
@@ -6,3 +6,5 @@ Country reference list.
 ## Columns
 | Column | Type | Null | Default | Description | Notes |
 |-------:|:-----|:----:|:--------|:------------|:------|
+| iso2 | CHAR(2) | — | — | ISO 3166-1 alpha-2 country code (upper case). |  |
+| name | VARCHAR(100) | NO | — | Official short name. |  |

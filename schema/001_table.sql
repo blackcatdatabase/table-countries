@@ -1,4 +1,4 @@
--- Auto-generated from schema-map.psd1 (map@1e83bb6)
+-- Auto-generated from schema-map.psd1 (map@6cefe8e)
 -- table: countries
 CREATE TABLE IF NOT EXISTS countries (
   iso2 CHAR(2) PRIMARY KEY,

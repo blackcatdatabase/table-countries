@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace BlackCat\Database\Packages\Countries\Service;
 
-use BlackCat\Core\Database\Database;
+use BlackCat\Core\Database;
 use BlackCat\Database\Packages\Countries\Dto\CountryDto;
 use BlackCat\Database\Packages\Countries\Mapper\CountryDtoMapper;
 use BlackCat\Database\Packages\Countries\Repository\CountryRepository;

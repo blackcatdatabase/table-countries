@@ -6,7 +6,7 @@ namespace BlackCat\Database\Packages\Countries;
 final class Definitions {
     // --- základní metadata ---
     public static function table(): string { return 'countries'; }
-    public static function contractView(): string { return 'v_countries_contract'; }
+    public static function contractView(): string { return 'vw_countries'; }
     /** @return string[] */
     public static function columns(): array { return [ 'iso2', 'name' ]; }
     public static function pk(): string { return 'iso2'; }

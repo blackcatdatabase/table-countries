@@ -43,7 +43,7 @@ final class CountryRepository implements RepoContract, KeysetRepoContract
 
     // --- INSERT / BULK -------------------------------------------------------
 
-    public function insert(array #[\SensitiveParameter] $row): void {
+    public function insert(#[\SensitiveParameter] array $row): void {
         $row = $this->filterCols($this->normalizeInputRow($row));
         if (!$row) return;
 
@@ -107,13 +107,13 @@ final class CountryRepository implements RepoContract, KeysetRepoContract
     }
 
     /** Standard upsert – preserves soft-delete (no revive). */
-    public function upsert(array #[\SensitiveParameter] $row): void
+    public function upsert(#[\SensitiveParameter] array $row): void
     {
         $this->doUpsert($row, false);
     }
 
     /** Upsert that revives soft-delete (sets deleted_at = NULL on conflict). */
-    public function upsertRevive(array #[\SensitiveParameter] $row): void
+    public function upsertRevive(#[\SensitiveParameter] array $row): void
     {
         $this->doUpsert($row, true);
     }
@@ -216,7 +216,7 @@ final class CountryRepository implements RepoContract, KeysetRepoContract
 
     // --- UPDATE / DELETE / RESTORE ------------------------------------------
 
-    public function updateById(int|string|array $id, array #[\SensitiveParameter] $row): int {
+    public function updateById(int|string|array $id, #[\SensitiveParameter] array $row): int {
         $row = $this->normalizeInputRow($row);
 
         $tbl   = Ident::qi($this->db, Definitions::table());
@@ -428,7 +428,7 @@ final class CountryRepository implements RepoContract, KeysetRepoContract
         $sql = "SELECT * FROM {$tbl} WHERE {$where}";
         if ($guard !== '1=1') { $sql .= ' AND ' . $guard; }
 
-        $dialect = $this->db->getDialect(); // 'postgres' | 'mysql' | 'mariadb' ...
+        $dialect = $this->db->dialect(); // 'postgres' | 'mysql' | 'mariadb' ...
         $for = 'FOR UPDATE';
         if ($strength === 'share') {
             if ($dialect === 'postgres' || $dialect === 'mysql') { $for = 'FOR SHARE'; }
@@ -473,20 +473,4 @@ final class CountryRepository implements RepoContract, KeysetRepoContract
 
     // === Generated unique helpers (per table UNIQUE/PK) ===
     
-    /** @return array<string,mixed>|\BlackCat\Database\Packages\Countries\Dto\CountryDto|null */
-    public function getByIso2(string $iso2, bool $asDto = false): array|\BlackCat\Database\Packages\Countries\Dto\CountryDto|null {
-        $row = $this->getByUnique([ 'iso2' => $iso2 ]);
-        if (!$asDto || !$row) return $row;
-        return \BlackCat\Database\Packages\Countries\Mapper\CountryDtoMapper::fromRow($row);
-    }
-    public function existsByIso2(string $iso2): bool {
-        $where = 't.' . Ident::q($this->db, 'iso2') . ' = :uniq_iso2';
-        return $this->exists($where, [ 'uniq_iso2' => $iso2 ]);
-    }
-    /** @return int|string|null */
-    public function getIdByIso2(string $iso2) {
-        $row = $this->getByIso2($iso2);
-        return $row ? ($row['iso2'] ?? null) : null;
-    }
-
 }

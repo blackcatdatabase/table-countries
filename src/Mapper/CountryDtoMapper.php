@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class CountryDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [];
+    private const COL_TO_PROP = [ 'iso2' => 'iso2', 'name' => 'name' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [];

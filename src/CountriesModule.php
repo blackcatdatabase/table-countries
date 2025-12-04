@@ -37,7 +37,9 @@ final class CountriesModule implements ModuleInterface
 CREATE OR REPLACE ALGORITHM=MERGE SQL SECURITY INVOKER VIEW vw_countries AS
 SELECT
   iso2,
-  name
+  name,
+  created_at,
+  updated_at
 FROM countries;
 SQL;
         } else {
@@ -45,7 +47,9 @@ SQL;
 CREATE OR REPLACE VIEW vw_countries AS
 SELECT
   iso2,
-  name
+  name,
+  created_at,
+  updated_at
 FROM countries;
 SQL;
         }

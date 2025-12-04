@@ -8,7 +8,7 @@ final class Definitions {
     public static function table(): string { return 'countries'; }
     public static function contractView(): string { return 'vw_countries'; }
     /** @return string[] */
-    public static function columns(): array { return [ 'iso2', 'name' ]; }
+    public static function columns(): array { return [ 'iso2', 'name', 'created_at', 'updated_at' ]; }
 
     /** @var array<string,array<int,string>> */
     public const STATUS_TRANSITIONS = [];
@@ -46,14 +46,14 @@ final class Definitions {
         $c = trim(''); return $c !== '' ? $c : null;
     }
     public static function updatedAtColumn(): ?string {
-        $c = trim(''); return $c !== '' ? $c : null;
+        $c = trim('updated_at'); return $c !== '' ? $c : null;
     }
     public static function versionColumn(): ?string {
         $c = trim(''); return $c !== '' ? $c : null;
     }
     /** e.g. "created_at DESC, id DESC" */
     public static function defaultOrder(): ?string {
-        $c = trim('iso2 DESC'); return $c !== '' ? $c : null;
+        $c = trim('created_at DESC, iso2 DESC'); return $c !== '' ? $c : null;
     }
 
     /** @return array<int,array<int,string>> list of unique keys */

@@ -11,7 +11,9 @@ namespace BlackCat\Database\Packages\Countries\Dto;
 final class CountryDto implements \JsonSerializable {
     public function __construct(
         public readonly string $iso2,
-        #[\SensitiveParameter] public readonly string $name
+        #[\SensitiveParameter] public readonly string $name,
+        public readonly \DateTimeImmutable $createdAt,
+        public readonly \DateTimeImmutable $updatedAt
     ) {}
 
     /** Suitable for serialization/logging (without large blobs). */

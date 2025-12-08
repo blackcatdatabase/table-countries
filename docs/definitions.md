@@ -19,5 +19,5 @@ Country reference list.
 ## Views
 | View | Engine | Flags | File |
 | --- | --- | --- | --- |
-| vw_countries | mysql | algorithm=MERGE, security=INVOKER | [packages\countries\schema\040_views.mysql.sql](https://github.com/blackcatacademy/blackcat-database/packages/countries/schema/040_views.mysql.sql) |
-| vw_countries | postgres |  | [packages\countries\schema\040_views.postgres.sql](https://github.com/blackcatacademy/blackcat-database/packages/countries/schema/040_views.postgres.sql) |
+| vw_countries | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views.mysql.sql](schema\040_views.mysql.sql) |
+| vw_countries | postgres |  | [schema\040_views.postgres.sql](schema\040_views.postgres.sql) |

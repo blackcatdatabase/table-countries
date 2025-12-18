@@ -1,0 +1,20 @@
+{
+  "tables": {
+    "countries": {
+      "columns": {
+        "created_at": {
+          "strategy": "passthrough"
+        },
+        "iso2": {
+          "strategy": "passthrough"
+        },
+        "name": {
+          "strategy": "passthrough"
+        },
+        "updated_at": {
+          "strategy": "passthrough"
+        }
+      }
+    }
+  }
+}

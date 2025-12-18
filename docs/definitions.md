@@ -3,10 +3,12 @@
 Country reference list.
 
 ## Columns
-| Column | Type | Null | Default | Description |
-| --- | --- | --- | --- | --- |
-| iso2 | CHAR(2) | NO |  | ISO 3166-1 alpha-2 country code (upper case). |
-| name | VARCHAR(100) | NO |  | Official short name. |
+| Column | Type | Null | Default | Description | Crypto |
+| --- | --- | --- | --- | --- | --- |
+| iso2 | CHAR(2) | NO |  | ISO 3166-1 alpha-2 country code (upper case). |  |
+| name | VARCHAR(100) | NO |  | Official short name. |  |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |  |
+| updated_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Update timestamp (UTC). |  |
 
 ## Engine Details
 
